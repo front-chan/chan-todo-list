@@ -1,67 +1,7 @@
 import "./App.css";
 import React, { useState } from "react";
-
-function Working(props) {
-  // console.log(props);
-  if (props.todo.done === true) {
-    return (
-      <div>
-        <h3>{props.todo.title}</h3>
-        <p>{props.todo.toDo}</p>
-        <div>
-          <button
-            onClick={() => {
-              props.handleDelete(props.todo.id);
-            }}
-          >
-            삭제하기
-          </button>
-          <button
-            onClick={() => {
-              props.handleChange(props.todo.done);
-              // console.log(props.todo.done);
-              props.todo.done = false;
-              // console.log(props.todo.done);
-            }}
-          >
-            {props.todo.done === true ? "완료" : "취소"}
-          </button>
-        </div>
-      </div>
-    );
-  }
-}
-
-function Done(props) {
-  // console.log(props);
-  if (props.todo.done === false) {
-    return (
-      <div>
-        <h3>{props.todo.title}</h3>
-        <p>{props.todo.toDo}</p>
-        <div>
-          <button
-            onClick={() => {
-              props.handleDelete(props.todo.id);
-            }}
-          >
-            삭제하기
-          </button>
-          <button
-            onClick={() => {
-              props.handleChange(props.todo.done);
-              // console.log(props.todo.done);
-              props.todo.done = true;
-              // console.log(props.todo.done);
-            }}
-          >
-            {props.todo.done === false ? "취소" : "완료"}
-          </button>
-        </div>
-      </div>
-    );
-  }
-}
+import Working from "./components/Working";
+import Done from "./components/Done";
 
 function App() {
   const [toDoList, setToDoList] = useState([
@@ -72,6 +12,8 @@ function App() {
       done: true,
     },
     { id: 2, title: "리액트 찍먹", toDo: "리액트 찍먹합시다", done: false },
+    { id: 3, title: "텍스트 추가", toDo: "테스트 중입니다", done: false },
+    { id: 4, title: "취소버튼 안먹힘", toDo: "테스트", done: true },
   ]);
 
   const [title, setTitle] = useState();
@@ -134,8 +76,10 @@ function App() {
           <h1>Done..!</h1>
           {toDoList.map((todo) => {
             return (
+              // {todo.done === false}
               <Done
                 todo={todo}
+                // done={todo.done === false}
                 key={todo.id}
                 handleDelete={deleteToDoListHandler}
                 handleChange={changeToDoListHandler}
