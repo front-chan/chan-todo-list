@@ -5,12 +5,7 @@ import Done from "./components/Done";
 
 function App() {
   const [toDoList, setToDoList] = useState([
-    {
-      id: 1,
-      title: "리액트 공부하기",
-      toDo: "리액트 기초를 공부해봅시다.",
-      done: true,
-    },
+    { id: 1, title: "리액트 공부하기", toDo: "리액트 기초", done: true },
     { id: 2, title: "리액트 찍먹", toDo: "리액트 찍먹합시다", done: false },
     { id: 3, title: "텍스트 추가", toDo: "테스트 중입니다", done: false },
     { id: 4, title: "취소버튼 안먹힘", toDo: "테스트", done: true },
@@ -34,9 +29,15 @@ function App() {
     setToDoList(newToDoList);
   }
 
-  function changeToDoListHandler() {
-    const changeToDoList = toDoList.filter((todo) => todo.done === true);
-    setToDoList(changeToDoList);
+  function changeToDoListHandler(id) {
+    // const changeToDoList = toDoList.filter((todo) => todo.done === true);
+    // setToDoList(changeToDoList);
+    setToDoList(
+      toDoList.map((todo) => {
+        return todo.id === id ? (todo.done = false) : todo;
+        // todo.done === true ? (todo.done = false) : (todo.done = true);
+      })
+    );
   }
 
   return (
@@ -60,7 +61,7 @@ function App() {
       </header>
       <main>
         <section>
-          <h1>Working...</h1>
+          <h1>Working...🔥</h1>
           {toDoList.map((todo) => {
             return (
               <Working
@@ -73,7 +74,7 @@ function App() {
           })}
         </section>
         <section>
-          <h1>Done..!</h1>
+          <h1>Done..!🎉</h1>
           {toDoList.map((todo) => {
             return (
               // {todo.done === false}

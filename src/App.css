@@ -1,9 +1,12 @@
 .App {
   max-width: 1200px;
+  min-width: 800px;
   width: 95%;
+  margin: 20px auto;
 }
 
 .App-header {
   background-color: rgb(227, 227, 227);
   height: 100px;
+  margin: auto;
 }

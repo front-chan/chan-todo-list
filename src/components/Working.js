@@ -1,19 +1,21 @@
+import CustomButton from "./CustomButton";
+
 function Working(props) {
-  console.log(props.children);
+  //   console.log(props);
   if (props.todo.done === true) {
     return (
       <div>
         <h3>{props.todo.title}</h3>
         <p>{props.todo.toDo}</p>
         <div>
-          <button
+          <CustomButton
             onClick={() => {
               props.handleDelete(props.todo.id);
             }}
           >
             삭제하기
-          </button>
-          <button
+          </CustomButton>
+          <CustomButton
             onClick={() => {
               props.handleChange(props.todo.done);
               // console.log(props.todo.done);
@@ -22,7 +24,7 @@ function Working(props) {
             }}
           >
             {props.todo.done === true ? "완료" : "취소"}
-          </button>
+          </CustomButton>
         </div>
       </div>
     );

@@ -1,3 +1,5 @@
+import CustomButton from "./CustomButton";
+
 function Done(props) {
   // console.log(props);
   if (props.todo.done === false) {
@@ -6,14 +8,14 @@ function Done(props) {
         <h3>{props.todo.title}</h3>
         <p>{props.todo.toDo}</p>
         <div>
-          <button
+          <CustomButton
             onClick={() => {
               props.handleDelete(props.todo.id);
             }}
           >
             삭제하기
-          </button>
-          <button
+          </CustomButton>
+          <CustomButton
             onClick={() => {
               props.handleChange(props.todo.done);
               // console.log(props.todo.done);
@@ -22,7 +24,7 @@ function Done(props) {
             }}
           >
             {props.todo.done === false ? "취소" : "완료"}
-          </button>
+          </CustomButton>
         </div>
       </div>
     );
