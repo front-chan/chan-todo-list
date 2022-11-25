@@ -1,17 +1,47 @@
 function CustomButton(props) {
-  const { color, onClick, children } = props;
+  const {
+    width,
+    margin,
+    padding,
+    border,
+    borderRadius,
+    bgColor,
+    color,
+    onClick,
+    children,
+  } = props;
   //   console.log(props.children);
-  if (color) {
-    return (
-      <button
-        style={{ backgroundColor: color, color: "white" }}
-        onClick={onClick}
-      >
-        {children}
-      </button>
-    );
-  }
-  return <button onClick={onClick}>{children}</button>;
+  //   if (color) {
+  //     return (
+  //       <button
+  //         style={{
+  //           border: border,
+  //           borderRadius: borderRadius,
+  //           backgroundColor: bgColor,
+  //           color: color,
+  //         }}
+  //         onClick={onClick}
+  //       >
+  //         {children}
+  //       </button>
+  //     );
+  //   }
+  return (
+    <button
+      style={{
+        width: width,
+        margin: margin,
+        padding: padding,
+        border: border,
+        borderRadius: borderRadius,
+        backgroundColor: bgColor,
+        color: color,
+      }}
+      onClick={onClick}
+    >
+      {children}
+    </button>
+  );
 }
 
 export default CustomButton;

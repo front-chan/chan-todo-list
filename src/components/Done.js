@@ -1,14 +1,21 @@
+import "../List.css";
 import CustomButton from "./CustomButton";
 
 function Done(props) {
   // console.log(props);
   if (props.todo.done === false) {
     return (
-      <div>
-        <h3>{props.todo.title}</h3>
-        <p>{props.todo.toDo}</p>
+      <div className="done">
+        <h3 className="title">{props.todo.title}</h3>
+        <p className="todo">{props.todo.toDo}</p>
         <div>
           <CustomButton
+            width="130px"
+            bgColor="transparent"
+            border="2px solid red"
+            borderRadius="10px"
+            margin="10px"
+            padding="10px 30px"
             onClick={() => {
               props.handleDelete(props.todo.id);
             }}
@@ -16,6 +23,12 @@ function Done(props) {
             삭제하기
           </CustomButton>
           <CustomButton
+            width="130px"
+            bgColor="transparent"
+            border="2px solid green"
+            borderRadius="10px"
+            margin="10px"
+            padding="10px 30px"
             onClick={() => {
               props.handleChange(props.todo.done);
               // console.log(props.todo.done);

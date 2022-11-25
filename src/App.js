@@ -2,6 +2,7 @@ import "./App.css";
 import React, { useState } from "react";
 import Working from "./components/Working";
 import Done from "./components/Done";
+import CustomButton from "./components/CustomButton";
 
 function App() {
   const [toDoList, setToDoList] = useState([
@@ -43,50 +44,71 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <label htmlFor="title">제목</label>
-        <input
-          value={title || ""}
-          placeholder="제목을 입력해주세요"
-          id="title"
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <label htmlFor="todo">내용</label>
-        <input
-          value={toDo || ""}
-          placeholder="내용을 입력해주세요"
-          id="todo"
-          onChange={(e) => setToDo(e.target.value)}
-        />
-        <button onClick={addToDoListHandler}>추가하기</button>
+        <div>
+          <label htmlFor="title">제목</label>
+          <input
+            className="input-text"
+            value={title || ""}
+            placeholder="제목을 입력해주세요"
+            id="title"
+            onChange={(e) => setTitle(e.target.value)}
+          />
+          <label htmlFor="todo">내용</label>
+          <input
+            className="input-text"
+            value={toDo || ""}
+            placeholder="내용을 입력해주세요"
+            id="todo"
+            onChange={(e) => setToDo(e.target.value)}
+          />
+        </div>
+        <div>
+          <CustomButton
+            width="130px"
+            bgColor="rgb(1, 87, 65)"
+            color="white"
+            border="0"
+            borderRadius="10px"
+            margin="10px"
+            padding="10px 30px"
+            onClick={addToDoListHandler}
+          >
+            추가하기
+          </CustomButton>
+        </div>
       </header>
-      <main>
+      <main className="list-section">
         <section>
           <h1>Working...🔥</h1>
-          {toDoList.map((todo) => {
-            return (
-              <Working
-                todo={todo}
-                key={todo.id}
-                handleDelete={deleteToDoListHandler}
-                handleChange={changeToDoListHandler}
-              ></Working>
-            );
-          })}
+          <div className="working-section">
+            {toDoList.map((todo) => {
+              return (
+                <Working
+                  todo={todo}
+                  key={todo.id}
+                  handleDelete={deleteToDoListHandler}
+                  handleChange={changeToDoListHandler}
+                ></Working>
+              );
+            })}
+          </div>
         </section>
         <section>
           <h1>Done..!🎉</h1>
-          {toDoList.map((todo) => {
-            return (
-              // {todo.done === false}
-              <Done
-                todo={todo}
-                // done={todo.done === false}
-                key={todo.id}
-                handleDelete={deleteToDoListHandler}
-                handleChange={changeToDoListHandler}
-              ></Done>
-            );
-          })}
+          <div className="done-section">
+            {toDoList.map((todo) => {
+              return (
+                // {todo.done === false}
+                <Done
+                  todo={todo}
+                  // done={todo.done === false}
+                  key={todo.id}
+                  handleDelete={deleteToDoListHandler}
+                  handleChange={changeToDoListHandler}
+                ></Done>
+              );
+            })}
+          </div>
         </section>
       </main>
     </div>

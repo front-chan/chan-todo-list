@@ -6,7 +6,38 @@
 }
 
 .App-header {
+  border-radius: 10px;
   background-color: rgb(227, 227, 227);
   height: 100px;
-  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.input-text {
+  margin: 10px;
+  width: 250px;
+  height: 40px;
+  border: 0;
+  border-radius: 10px;
+}
+
+.list-section {
+  margin-left: 30px;
+}
+
+.working-section,
+.done-section {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  /* overflow-y: scroll; */
+}
+
+label {
+  font-size: 20px;
+  margin: 10px;
 }
