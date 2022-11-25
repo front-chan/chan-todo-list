@@ -9,6 +9,7 @@ function CustomButton(props) {
     color,
     onClick,
     children,
+    cursor,
   } = props;
   //   console.log(props.children);
   //   if (color) {
@@ -36,6 +37,7 @@ function CustomButton(props) {
         borderRadius: borderRadius,
         backgroundColor: bgColor,
         color: color,
+        cursor: cursor,
       }}
       onClick={onClick}
     >

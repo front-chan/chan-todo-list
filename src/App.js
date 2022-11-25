@@ -71,6 +71,7 @@ function App() {
             borderRadius="10px"
             margin="10px"
             padding="10px 30px"
+            cursor="pointer"
             onClick={addToDoListHandler}
           >
             추가하기

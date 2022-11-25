@@ -16,6 +16,7 @@ function Working(props) {
             borderRadius="10px"
             margin="10px"
             padding="10px 30px"
+            cursor="pointer"
             onClick={() => {
               props.handleDelete(props.todo.id);
             }}
@@ -29,6 +30,7 @@ function Working(props) {
             borderRadius="10px"
             margin="10px"
             padding="10px 30px"
+            cursor="pointer"
             onClick={() => {
               props.handleChange(props.todo.done);
               // console.log(props.todo.done);
