@@ -41,9 +41,18 @@ function App() {
     );
   }
 
+  function onSubmit(e) {
+    e.preventDefault();
+    if (title === "" && toDo === "") {
+      return;
+    }
+    setTitle("");
+    setToDo("");
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
+      <form className="App-header" onSubmit={onSubmit}>
         <div>
           <label htmlFor="title">제목</label>
           <input
@@ -77,7 +86,7 @@ function App() {
             추가하기
           </CustomButton>
         </div>
-      </header>
+      </form>
       <main className="list-section">
         <section>
           <h1>Working...🔥</h1>
