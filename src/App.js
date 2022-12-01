@@ -2,7 +2,7 @@ import "./App.css";
 import React, { useState } from "react";
 import Working from "./components/Working";
 import Done from "./components/Done";
-import CustomButton from "./components/CustomButton";
+import Form from "./components/input";
 
 function App() {
   const [toDoList, setToDoList] = useState([
@@ -52,41 +52,14 @@ function App() {
 
   return (
     <div className="App">
-      <form className="App-header" onSubmit={onSubmit}>
-        <div>
-          <label htmlFor="title">제목</label>
-          <input
-            className="input-text"
-            value={title || ""}
-            placeholder="제목을 입력해주세요"
-            id="title"
-            onChange={(e) => setTitle(e.target.value)}
-          />
-          <label htmlFor="todo">내용</label>
-          <input
-            className="input-text"
-            value={toDo || ""}
-            placeholder="내용을 입력해주세요"
-            id="todo"
-            onChange={(e) => setToDo(e.target.value)}
-          />
-        </div>
-        <div>
-          <CustomButton
-            width="130px"
-            bgColor="rgb(1, 87, 65)"
-            color="white"
-            border="0"
-            borderRadius="10px"
-            margin="10px"
-            padding="10px 30px"
-            cursor="pointer"
-            onClick={addToDoListHandler}
-          >
-            추가하기
-          </CustomButton>
-        </div>
-      </form>
+      <Form
+        title={title}
+        toDo={toDo}
+        addToDoListHandler={addToDoListHandler}
+        onSubmit={onSubmit}
+        setTitle={setTitle}
+        setToDo={setToDo}
+      ></Form>
       <main className="list-section">
         <section>
           <h1>Working...🔥</h1>
