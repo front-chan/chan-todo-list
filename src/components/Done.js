@@ -32,9 +32,9 @@ function Done(props) {
             padding="10px 30px"
             cursor="pointer"
             onClick={() => {
-              props.handleChange(props.todo.done);
+              props.handleChange(props.todo.id);
               // console.log(props.todo.done);
-              props.todo.done = true;
+              // props.todo.done = true;
               // console.log(props.todo.done);
             }}
           >

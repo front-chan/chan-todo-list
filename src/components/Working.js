@@ -33,6 +33,7 @@ function Working(props) {
             cursor="pointer"
             onClick={() => {
               props.handleChange(props.todo.done);
+              // props.handleChange(props.todo.id);
               // console.log(props.todo.done);
               props.todo.done = false;
               // console.log(props.todo.done);

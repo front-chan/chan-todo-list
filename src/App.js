@@ -33,13 +33,50 @@ function App() {
   function changeToDoListHandler(id) {
     // const changeToDoList = toDoList.filter((todo) => todo.done === true);
     // setToDoList(changeToDoList);
-    setToDoList(
-      toDoList.map((todo) => {
-        return todo.id === id ? (todo.done = false) : todo;
-        // todo.done === true ? (todo.done = false) : (todo.done = true);
-      })
-    );
+    /*
+    console.log(id);
+    setToDoList((ele) => {
+      ele.map((todo) => {
+        console.log(todo);
+
+        if (todo.id === true) {
+          todo.done = false;
+        } else {
+          // todo;
+        }
+      });
+      return ele;
+      */
+    const newTodos = toDoList.map((todo) => {
+      return todo.id === id ? { ...todo, done: !todo.done } : { ...todo };
+    });
+    setToDo(newTodos);
   }
+
+  /*
+    // 불변성의 법칙
+    const onEditHandler = (id) => {
+      const newTodos = todos.map((todo) => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            done: !todo.done,
+          };
+        } else if (todo.id !== id) {
+          return {
+            ...todo,
+          };
+        }
+      });
+      setToDo(newTodos);
+    };
+    */
+
+  // toDoList.map((todo) => {
+  //   return todo.id === id ? (todo.done = false) : todo;
+  // todo.done === true ? (todo.done = false) : (todo.done = true);
+  // })
+  // );
 
   function onSubmit(e) {
     e.preventDefault();
@@ -64,7 +101,7 @@ function App() {
         <section>
           <h1>Working...🔥</h1>
           <div className="working-section">
-            {toDoList.map((todo) => {
+            {toDoList?.map((todo) => {
               return (
                 <Working
                   todo={todo}
@@ -79,7 +116,7 @@ function App() {
         <section>
           <h1>Done..!🎉</h1>
           <div className="done-section">
-            {toDoList.map((todo) => {
+            {toDoList?.map((todo) => {
               return (
                 // {todo.done === false}
                 <Done
